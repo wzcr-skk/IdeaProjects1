@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crmeeting.mapper.RecordedFileMapper">
+  <resultMap id="BaseResultMap" type="com.crmeeting.entity.RecordedFile">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="meeting_id" jdbcType="BIGINT" property="meetingId" />
+    <result column="meeting_topic" jdbcType="VARCHAR" property="meetingTopic" />
+    <result column="meeting_start_time" jdbcType="TIMESTAMP" property="meetingStartTime" />
+    <result column="recorded_file_address" jdbcType="VARCHAR" property="recordedFileAddress" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from recorded_file
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.crmeeting.entity.RecordedFile">
+    insert into recorded_file (id, gmt_create, gmt_modified, 
+      meeting_id, meeting_topic, meeting_start_time, 
+      recorded_file_address)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{meetingId,jdbcType=BIGINT}, #{meetingTopic,jdbcType=VARCHAR}, #{meetingStartTime,jdbcType=TIMESTAMP}, 
+      #{recordedFileAddress,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.crmeeting.entity.RecordedFile">
+    update recorded_file
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      meeting_id = #{meetingId,jdbcType=BIGINT},
+      meeting_topic = #{meetingTopic,jdbcType=VARCHAR},
+      meeting_start_time = #{meetingStartTime,jdbcType=TIMESTAMP},
+      recorded_file_address = #{recordedFileAddress,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modified, meeting_id, meeting_topic, meeting_start_time, 
+    recorded_file_address
+    from recorded_file
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modified, meeting_id, meeting_topic, meeting_start_time, 
+    recorded_file_address
+    from recorded_file
+  </select>
+</mapper>

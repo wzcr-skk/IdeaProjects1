@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crmeeting.mapper.ScheduleMapper">
+  <resultMap id="BaseResultMap" type="com.crmeeting.entity.Schedule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="topic" jdbcType="VARCHAR" property="topic" />
+    <result column="start" jdbcType="TIMESTAMP" property="start" />
+    <result column="duration" jdbcType="SMALLINT" property="duration" />
+    <result column="time_zone" jdbcType="CHAR" property="timeZone" />
+    <result column="is_recurring_meeting" jdbcType="TINYINT" property="isRecurringMeeting" />
+    <result column="meeting_password" jdbcType="VARCHAR" property="meetingPassword" />
+    <result column="participant_list_id" jdbcType="BIGINT" property="participantListId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from schedule
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.crmeeting.entity.Schedule">
+    insert into schedule (id, gmt_create, gmt_modified, 
+      topic, start, duration, 
+      time_zone, is_recurring_meeting, meeting_password, 
+      participant_list_id)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{topic,jdbcType=VARCHAR}, #{start,jdbcType=TIMESTAMP}, #{duration,jdbcType=SMALLINT}, 
+      #{timeZone,jdbcType=CHAR}, #{isRecurringMeeting,jdbcType=TINYINT}, #{meetingPassword,jdbcType=VARCHAR}, 
+      #{participantListId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.crmeeting.entity.Schedule">
+    update schedule
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      topic = #{topic,jdbcType=VARCHAR},
+      start = #{start,jdbcType=TIMESTAMP},
+      duration = #{duration,jdbcType=SMALLINT},
+      time_zone = #{timeZone,jdbcType=CHAR},
+      is_recurring_meeting = #{isRecurringMeeting,jdbcType=TINYINT},
+      meeting_password = #{meetingPassword,jdbcType=VARCHAR},
+      participant_list_id = #{participantListId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modified, topic, start, duration, time_zone, is_recurring_meeting, 
+    meeting_password, participant_list_id
+    from schedule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modified, topic, start, duration, time_zone, is_recurring_meeting, 
+    meeting_password, participant_list_id
+    from schedule
+  </select>
+</mapper>

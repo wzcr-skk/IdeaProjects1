@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>驰润视频-个人中心</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" href="css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="css/personal-center.css">
+</head>
+<body>
+	<div class="header">
+		<div class="wide">个人中心</div>
+	</div>
+	<!-- 头像区域 -->
+	<div class="personal">
+		<div class="wide">
+			<ul class="clearfix">
+				<li class="profile-photo">
+					<p>李明</p>
+					<p>编辑个性签名</p>
+					<img src="images/Profile_Photo_03.png">
+				</li>
+				<li id="application">
+					<a href="">应用中心</a>
+				</li>
+				<li>
+					<a href="index.html">返回会议系统</a>
+					<a href="login.html">退出登录</a>		
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 头像区域 end -->
+	<form>
+			<div class="wide">
+				<ul>
+					<li><span>账号</span><input type="text" name="" value="cq12344" disabled="disabled"></li>
+					<li><span>会议ID</span><input type="text" name="" value="cq12344" disabled="disabled"></li>
+					<li>
+						<ul class="clearfix">
+							<li><span>昵称</span><input type="text" name="" placeholder=""></li>
+							<li>
+								<i>性别</i>
+								<select>
+									<option>男</option>
+									<option>女</option>
+								</select>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul class="clearfix">
+							<li><span>姓名</span><input type="text" name="" placeholder=""></li>
+							<li>
+								<i>出生日期</i>
+								<select>
+									<option>1980年12月11日</option>
+									<option>女</option>
+								</select>
+							</li>
+						</ul>
+					</li>
+					<li><span>地址</span><input type="text" name=""></li>
+					<li><span>公司名称</span><input type="text" name=""></li>
+					<li><span>公司域名</span><input type="text" name=""></li>
+					<li><span>电话</span><input type="text" name=""></li>
+					<li><span>邮箱</span><input type="text" name=""></li>
+					<li><span>公司电话</span><input type="text" name=""></li>
+					<li><button>保存</button><button>取消</button></li>
+				</ul>
+			</div>			
+		</form>	
+		<!-- 应用中心 弹窗区 -->
+		<div id="cover"></div>
+		<div class="application" id="icon">
+			<div class="application-header">
+				<p>应用中心</p>
+				<p id="close"></p>
+			</div>
+			<ul>
+				<li><a href=""><span class="icon"></span><p>共享</p></a></li>
+				<li><a href=""><span class="icon"></span><p>创建会议</p></a></li>
+				<li><a href=""><span class="icon"></span><p>加入会议</p></a></li>
+				<li><a href=""><span class="icon"></span><p>通讯录</p></a></li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/cover.js"></script>
+</body>
+</html>

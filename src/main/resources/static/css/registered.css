@@ -1,0 +1,72 @@
+.pic-bg {
+    height: 740px;
+    background: url(../images/pic_registerde_bg.jpg) center no-repeat;
+    background-size: cover;
+}
+.pic-bg form {
+    background-color: #fff;
+    padding: 35px 50px;
+    width: 356px;
+    float: right;
+    margin-top: 56px;
+    box-shadow: 1px 1px 20px #999;
+}
+.title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+form input {
+    height: 50px;
+    padding: 0 15px;
+    width: 320px;
+    color: #999999;
+    font-size: 16px;
+    border: 1px solid #999;
+    margin-bottom: 20px;
+}
+.tel input {
+    width: 200px;
+    float: left;
+}
+.tel span {
+    width: 110px;
+    height: 50px;
+    float: right;
+    background: #2d8cff;
+    color: #fff;
+    border: none;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+form button {
+    background-color: #2d8cff;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 16px;
+}
+.statement {
+    text-align: center;
+    line-height: 30px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.statement a,.login a {
+    color: #2d8cff;
+}
+.login {
+    text-align: center;
+    line-height: 50px;
+    border-top: 1px solid #e6e6e6;
+    margin: 0 3%;
+    margin-top: 20px;
+    width: 94%;
+    display: block;
+    font-size: 14px;
+}

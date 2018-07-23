@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crmeeting.mapper.UserHasGroupMapper">
+  <resultMap id="BaseResultMap" type="com.crmeeting.entity.UserHasGroup">
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <id column="group_id" jdbcType="BIGINT" property="groupId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from user_has_group
+    where user_id = #{userId,jdbcType=BIGINT}
+      and group_id = #{groupId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.crmeeting.entity.UserHasGroup">
+    insert into user_has_group (user_id, group_id)
+    values (#{userId,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select user_id, group_id
+    from user_has_group
+  </select>
+</mapper>

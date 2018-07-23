@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crmeeting.mapper.UserInformationMapper">
+  <resultMap id="BaseResultMap" type="com.crmeeting.entity.UserInformation">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="personal_meeting_id" jdbcType="CHAR" property="personalMeetingId" />
+    <result column="personal_note" jdbcType="VARCHAR" property="personalNote" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="user_head_portrait_id" jdbcType="BIGINT" property="userHeadPortraitId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_information
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.crmeeting.entity.UserInformation">
+    insert into user_information (id, gmt_create, gmt_modified, 
+      personal_meeting_id, personal_note, name, 
+      gender, birthday, address, 
+      user_head_portrait_id)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{personalMeetingId,jdbcType=CHAR}, #{personalNote,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, 
+      #{userHeadPortraitId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.crmeeting.entity.UserInformation">
+    update user_information
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      personal_meeting_id = #{personalMeetingId,jdbcType=CHAR},
+      personal_note = #{personalNote,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=TINYINT},
+      birthday = #{birthday,jdbcType=DATE},
+      address = #{address,jdbcType=VARCHAR},
+      user_head_portrait_id = #{userHeadPortraitId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modified, personal_meeting_id, personal_note, name, gender, 
+    birthday, address, user_head_portrait_id
+    from user_information
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modified, personal_meeting_id, personal_note, name, gender, 
+    birthday, address, user_head_portrait_id
+    from user_information
+  </select>
+</mapper>
