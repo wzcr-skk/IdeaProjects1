@@ -14,7 +14,7 @@
         <!-- 数据库连接信息 -->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=UTC"
+                connectionURL="jdbc:mysql://localhost:3306/cvcs?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"
                 userId="root"
                 password="root">
         </jdbcConnection>
@@ -40,6 +40,27 @@
         </javaClientGenerator>
 
         <!-- table指定每个表的生成策略 -->
-        <table tableName="t_user" domainObjectName="User" />
+        <table tableName="user_head_portrait" domainObjectName="UserHeadPorTrait" />
+        <table tableName="user_information" domainObjectName="UserInformation" />
+        <table tableName="participant_list" domainObjectName="ParticipantList" />
+        <table tableName="schedule" domainObjectName="Schedule" />
+        <table tableName="user" domainObjectName="User" />
+
+        <table tableName="contact" domainObjectName="Contact" />
+        <table tableName="private_chat_record" domainObjectName="PrivateChatRecord" />
+        <table tableName="group" domainObjectName="Group" />
+        <table tableName="group_chat_record" domainObjectName="GroupChatRecord" />
+        <table tableName="chat_file" domainObjectName="ChatFile" />
+
+        <table tableName="chat_image" domainObjectName="ChatImage" />
+        <table tableName="chat_emoticon" domainObjectName="ChatEmoticon" />
+        <table tableName="user_has_group" domainObjectName="UserHasGroup" />
+        <table tableName="chat_text" domainObjectName="ChatText" />
+        <table tableName="personal_file" domainObjectName="PersonalFile" />
+
+        <table tableName="company_file" domainObjectName="CompanyFile" />
+        <table tableName="questionnaire" domainObjectName="Questionnaire" />
+        <table tableName="recorded_file" domainObjectName="RecordedFile" />
+        <table tableName="sign_in" domainObjectName="SignIn" />
     </context>
 </generatorConfiguration>

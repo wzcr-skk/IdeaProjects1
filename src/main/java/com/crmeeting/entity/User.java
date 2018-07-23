@@ -1,30 +1,50 @@
 package com.crmeeting.entity;
 
-import java.io.Serializable;
+import java.util.Date;
 
-public class User implements Serializable{
-    private Integer id;
+public class User {
+    private Long id;
 
-    private String username;
+    private Date gmtCreate;
+
+    private Date gmtModified;
 
     private String password;
 
-    private String perms;
+    private String cellphone;
 
-    public Integer getId() {
+    private String eMail;
+
+    private String domainName;
+
+    private String company;
+
+    private Long userInformationId;
+
+    private Long scheduleId;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
     public String getPassword() {
@@ -35,11 +55,51 @@ public class User implements Serializable{
         this.password = password;
     }
 
-    public String getPerms() {
-        return perms;
+    public String getCellphone() {
+        return cellphone;
     }
 
-    public void setPerms(String perms) {
-        this.perms = perms;
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
+
+    public String geteMail() {
+        return eMail;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
+    }
+
+    public String getDomainName() {
+        return domainName;
+    }
+
+    public void setDomainName(String domainName) {
+        this.domainName = domainName;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public Long getUserInformationId() {
+        return userInformationId;
+    }
+
+    public void setUserInformationId(Long userInformationId) {
+        this.userInformationId = userInformationId;
+    }
+
+    public Long getScheduleId() {
+        return scheduleId;
+    }
+
+    public void setScheduleId(Long scheduleId) {
+        this.scheduleId = scheduleId;
     }
 }

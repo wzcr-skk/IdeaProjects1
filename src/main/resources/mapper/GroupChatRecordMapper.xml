@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crmeeting.mapper.GroupChatRecordMapper">
+  <resultMap id="BaseResultMap" type="com.crmeeting.entity.GroupChatRecord">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <id column="group_id" jdbcType="BIGINT" property="groupId" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="sender" jdbcType="BIGINT" property="sender" />
+    <result column="datetime" jdbcType="TIMESTAMP" property="datetime" />
+    <result column="have_read" jdbcType="SMALLINT" property="haveRead" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from group_chat_record
+    where id = #{id,jdbcType=BIGINT}
+      and group_id = #{groupId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.crmeeting.entity.GroupChatRecord">
+    insert into group_chat_record (id, group_id, gmt_create, 
+      gmt_modified, sender, datetime, 
+      have_read)
+    values (#{id,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{sender,jdbcType=BIGINT}, #{datetime,jdbcType=TIMESTAMP}, 
+      #{haveRead,jdbcType=SMALLINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.crmeeting.entity.GroupChatRecord">
+    update group_chat_record
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      sender = #{sender,jdbcType=BIGINT},
+      datetime = #{datetime,jdbcType=TIMESTAMP},
+      have_read = #{haveRead,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=BIGINT}
+      and group_id = #{groupId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select id, group_id, gmt_create, gmt_modified, sender, datetime, have_read
+    from group_chat_record
+    where id = #{id,jdbcType=BIGINT}
+      and group_id = #{groupId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, group_id, gmt_create, gmt_modified, sender, datetime, have_read
+    from group_chat_record
+  </select>
+</mapper>
