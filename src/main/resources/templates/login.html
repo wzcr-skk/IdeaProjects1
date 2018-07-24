@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>驰润视频会议系统登录</title>
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="../static/images/favicon.ico" />
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
@@ -19,10 +19,12 @@
 		<form action="">
 			<input type="text" placeholder = "用户名" class="name" >
 			<input type="password" placeholder = "输入密码" class="password" >
+			//  生成验证码
 			<p class="clearfix">
-				<input type="text" placeholder = "输入验证码" class="verification">
-				<span>3X5M</span>
+				<input type="text" placeholder = "输入验证码" class="verification" id="code">
+				<span onlike="createCode"></span>
 			</p>
+
 			<input type="button" class="button" value="确定">
 		</form>
 	</div>
